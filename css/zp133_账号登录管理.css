@@ -1,0 +1,150 @@
+module.exports=`
+
+/**/
+.zp133 {
+    position: relative;
+    height: 460px;
+    width: 460px;
+    max-width: 100vw;
+    margin: auto;
+    padding: 80px 75px;
+    background: white;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.zp133 * {
+    box-sizing: inherit;
+}
+
+.zp133toggle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+}
+
+.zp133toggle>div {
+    width: 100px;
+    height: 100px;
+    transform: translate(-50px, -50px) rotate(45deg);
+    cursor: pointer;
+    background-color: #82a7fc;
+    transition: background-color .3s;
+}
+
+.zp133toggle>div:hover {
+    background-color: #4e83fd
+}
+
+.zp133toggle svg {
+    position: absolute;
+    width: 40px;
+    fill: #fff;
+    bottom: -8px;
+    left: 30px;
+    transform: rotate(-45deg);
+}
+
+.zp133wxqr {
+    transform: translate(0, -50px);
+}
+
+.zp133wxqr>div {
+    padding: 0px 25px;
+}
+
+.zp133 input,
+.zp133 .zbtn {
+    width: 100%;
+    margin-bottom: 18px;
+}
+
+.zp133 input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px #fff inset;
+}
+
+.zp133 i {
+    position: absolute;
+    top: 146px;
+    right: 84px;
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.zp133register i {
+    top: 205px;
+}
+
+.zp133forget i {
+    top: 320px;
+}
+
+.zp133 i:hover {
+    color: #82a7fc;
+}
+
+.zp133 a {
+    color: #348fe4;
+}
+
+.zp133 h2,
+.zp133 h4 {
+    font-weight: normal;
+}
+
+.zp133code .zinput,
+.zp133Mcode .zinput {
+    width: 50%;
+}
+
+#zp133agree {
+    width: 13px;
+    margin-right: 8px;
+}
+
+.zp133code .zbtn,
+.zp133Mcode .zbtn {
+    width: 45%;
+    font-size: 14px;
+    background: #f4f4f4;
+}
+
+.zp133code,
+.zp133Mcode,
+.zp133foot {
+    display: flex;
+    justify-content: space-between;
+}
+
+.zp133formlogin {
+    margin-top: 44px;
+}
+
+.zp133formlogin i {
+    top: 190px;
+}
+
+@media (min-width: 768px) {
+    .zp133 {
+        border-radius: 5px;
+        border: 1px solid #eee;
+    }
+}
+
+@media (max-width: 460px) {
+    .zp133 {
+        padding: 80px 25px;
+    }
+
+    .zp133 i {
+        right: 36px;
+    }
+
+    .zp133wxqr>div {
+        padding: 0px 55px;
+    }
+}
+
+`
