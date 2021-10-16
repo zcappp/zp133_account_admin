@@ -36,7 +36,7 @@ function onInit(ref) {
 function rLogin() {
     if (type === "wxlogin") return <div className="zp133wxqr zcenter">
         <h2>微信登录</h2>
-        {rd({ t: "WxQRLogin", s: "padding: 0px 25px;", p: { onEnd: P.onEnd || "go(-1)" } })}
+        {rd({ t: "WxQRLogin", s: "padding: 0px 25px;", p: { onEnd: P.onEnd } })}
         <h4>打开微信扫一扫即可登录</h4>
     </div>
     return <React.Fragment>
@@ -197,7 +197,7 @@ function invalid(cx, msg) { // = exc('addRemoveClass(".zp133phone", "zinvalid")'
 }
 
 function onEnd($x) {
-    P.onEnd ? exc(P.onEnd, { ...rf.ctx, $x, type }, () => exc("render()")) : exc('go(-1)')
+    if (P.onEnd) exc(P.onEnd, { ...rf.ctx, $x, type }, () => exc("render()"))
 }
 
 $plugin({
