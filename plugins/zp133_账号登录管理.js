@@ -6,6 +6,7 @@ let rf, exc, rd, P, T, type, visible, account
 
 function render() {
     if (!T.length) return <div>请右键配置属性</div>
+    if (type && !T.includes(type) && !type.includes("login")) return <div>{"当前配置不允许" + type}</div>
     if (type === "注册") return rRegister()
     if (type === "更改手机号" || type === "更改邮箱") return rChange()
     if (type === "重置密码") return rReset()
