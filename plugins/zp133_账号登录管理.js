@@ -29,7 +29,15 @@ function onInit(ref) {
     } else if (TYPES[type]) {
         type = TYPES[type]
     } else {
-        type = T.includes("微信扫码登录") ? "wxlogin" : "formlogin"
+        if (T.includes("微信扫码登录")) {
+            type = "wxlogin"
+            setTimeout(() => {
+                log($(".zp133wxqr"))
+                rf.render()
+            }, 9)
+        } else {
+            type = "formlogin"
+        }
     }
     account = T.includes("手机号登录") && T.includes("邮箱登录") ? "手机号 / 邮箱" : (T.includes("手机号登录") ? "手机号" : (T.includes("邮箱登录") ? "邮箱" : ""))
 }
