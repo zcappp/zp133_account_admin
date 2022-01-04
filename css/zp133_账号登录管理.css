@@ -87,6 +87,7 @@ module.exports=`
 
 .zp133 a {
     color: #348fe4;
+    cursor: pointer;
 }
 
 .zp133 h2,
