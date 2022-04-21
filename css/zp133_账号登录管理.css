@@ -49,6 +49,7 @@ module.exports=`
 
 .zp133wxqr {
     transform: translate(0, -50px);
+    text-align: center;
 }
 
 .zp133wxqr>div {
@@ -75,6 +76,10 @@ module.exports=`
 
 .zp133register i {
     top: 205px;
+}
+
+.zp133register div:last-child {
+    text-align: center;
 }
 
 .zp133forget i {
