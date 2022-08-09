@@ -179,7 +179,7 @@ function sendCode(e, input = "zp133phone", btn = "zp133code") {
     let isMobile
     if (exc('isMobile(to)', { to })) isMobile = true
     if (exc('isEmail(to)', { to })) isMobile = false
-    if (isMobile === undefined) return invalid(input, "请输入" + (isMobile ? "手机号" : "邮箱"))
+    if (isMobile === undefined) return invalid(input, "请输入" + (input == "zp133phone" ? "手机号" : "邮箱"))
     if (e.target.innerText.includes("已发送")) return
     e.target.classList.add("zdisable")
     let countdown = 100
