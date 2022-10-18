@@ -17,6 +17,10 @@ module.exports=`
     box-sizing: inherit;
 }
 
+.zp133 > div>div {
+    position: relative;
+}
+
 .zp133toggle {
     position: absolute;
     top: 0;
@@ -68,22 +72,14 @@ module.exports=`
 
 .zp133 i {
     position: absolute;
-    top: 146px;
-    right: 84px;
+    top: 4px;
+    right: 4px;
     cursor: pointer;
     color: rgba(0, 0, 0, 0.5);
 }
 
-.zp133register i {
-    top: 205px;
-}
-
 .zp133register div:last-child {
     text-align: center;
-}
-
-.zp133forget i {
-    top: 320px;
 }
 
 .zp133 i:hover {
@@ -128,10 +124,6 @@ module.exports=`
     margin-top: 44px;
 }
 
-.zp133formlogin i {
-    top: 190px;
-}
-
 @media (min-width: 768px) {
     .zp133 {
         border-radius: 5px;
@@ -142,10 +134,6 @@ module.exports=`
 @media (max-width: 460px) {
     .zp133 {
         padding: 80px 25px;
-    }
-
-    .zp133 i {
-        right: 36px;
     }
 
     .zp133wxqr>div {
