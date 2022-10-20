@@ -17,12 +17,12 @@ module.exports=`
     box-sizing: inherit;
 }
 
-.zp133 > div>div {
+.zp133>div>div {
     position: relative;
 }
 
 .zp133toggle {
-    position: absolute;
+    position: absolute !important;
     top: 0;
     right: 0;
     width: 0;
