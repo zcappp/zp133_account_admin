@@ -49,12 +49,12 @@ function rLogin() {
         <h4>打开微信扫一扫即可登录</h4>
     </div>
     return <React.Fragment>
-        <div><input className="zp133phone zinput zlg" placeholder={account}/></div>
+        <div><input className="zp133phone zinput" placeholder={account}/></div>
         <div>
-            <input type={visible ? "" : "password"} className="zp133passwd zinput zlg" placeholder="密码"/>
+            <input type={visible ? "" : "password"} className="zp133passwd zinput" placeholder="密码"/>
             <i onClick={() => {visible = !visible; rd()}}>{visible ? eye : eye0}</i>
         </div>
-        <div onClick={login} className="zbtn zlg zprimary">登录</div>
+        <div onClick={login} className="zbtn zprimary">登录</div>
         <div className="zp133foot">
             {T.includes("注册") && !T.includes("微信扫码登录") && <a onClick={() => {type = "注册"; rd()}}>注册</a>}
             {T.includes("忘记密码") && <a onClick={() => {type = "忘记密码"; rd()}}>忘记密码</a>}
@@ -72,17 +72,17 @@ function login() {
 
 function rRegister() {
     return <div className="zp133register">
-        <div><input className="zp133phone zinput zlg" placeholder={account}/></div>
+        <div><input className="zp133phone zinput" placeholder={account}/></div>
         <div className="zp133code">
-            <input type="tel" className="zinput zlg" placeholder="验证码"/>
-            <button className="zbtn zlg" onClick={sendCode}>获取验证码</button>
+            <input type="tel" className="zinput" placeholder="验证码"/>
+            <button className="zbtn" onClick={sendCode}>获取验证码</button>
         </div>
         <div>
-            <input type={visible ? "" : "password"} className="zp133passwd zinput zlg" placeholder="密码，至少8个字符,须包含数字、大小写字母"/>
+            <input type={visible ? "" : "password"} className="zp133passwd zinput" placeholder="密码，至少8个字符,须包含数字、大小写字母"/>
             <i onClick={() => {visible = !visible; rd()}}>{visible ? eye : eye0}</i>
         </div>
         {!!P.agreeURL && <div><input type="checkbox" id="zp133agree"/><label htmlFor="zp133agree">已阅读并同意<a href={P.agreeURL} target="_blank">《{P.agreeName || "用户服务协议"}》</a></label></div>}
-        <div onClick={register} className="zbtn zlg zprimary">注册</div>
+        <div onClick={register} className="zbtn zprimary">注册</div>
         <div className="zcenter">已有账号<a onClick={() => {type = "formlogin"; rd()}}> 去登录</a></div>
     </div>
 }
@@ -103,12 +103,12 @@ function register() {
 
 function rChange() {
     return <div>
-        <div><input className="zp133phone zinput zlg" placeholder={type.replace("更改", "")}/></div>
+        <div><input className="zp133phone zinput" placeholder={type.replace("更改", "")}/></div>
         <div className="zp133code">
-            <input type="tel" className="zinput zlg" placeholder="验证码"/>
-            <button className="zbtn zlg" onClick={sendCode}>获取验证码</button>
+            <input type="tel" className="zinput" placeholder="验证码"/>
+            <button className="zbtn" onClick={sendCode}>获取验证码</button>
         </div>
-        <div onClick={change} className="zbtn zlg zprimary">{type}</div>
+        <div onClick={change} className="zbtn zprimary">{type}</div>
     </div>
 }
 
@@ -121,16 +121,16 @@ function change() {
 
 function rReset() {
     return <div className="zp133register">
-        <div><input className="zp133phone zinput zlg" placeholder={account}/></div>
+        <div><input className="zp133phone zinput" placeholder={account}/></div>
         <div className="zp133code">
-            <input type="tel" className="zinput zlg" placeholder="验证码"/>
-            <button className="zbtn zlg" onClick={sendCode}>获取验证码</button>
+            <input type="tel" className="zinput" placeholder="验证码"/>
+            <button className="zbtn" onClick={sendCode}>获取验证码</button>
         </div>
         <div>
-            <input type={visible ? "" : "password"} className="zp133passwd zinput zlg" placeholder="新密码，至少8个字符,须包含数字、大小写字母"/>
+            <input type={visible ? "" : "password"} className="zp133passwd zinput" placeholder="新密码，至少8个字符,须包含数字、大小写字母"/>
             <i onClick={() => {visible = !visible; rd()}}>{visible ? eye : eye0}</i>
         </div>
-        <div onClick={reset} className="zbtn zlg zprimary">重置密码</div>
+        <div onClick={reset} className="zbtn zprimary">重置密码</div>
     </div>
 }
 
@@ -145,21 +145,21 @@ function reset() {
 
 function rForget() {
     return <div className="zp133forget">
-        <div><input className="zp133mail zinput zlg" placeholder="邮箱"/></div>
+        <div><input className="zp133mail zinput" placeholder="邮箱"/></div>
         <div className="zp133Mcode">
-            <input type="tel" className="zinput zlg" placeholder="邮箱验证码"/>
-            <button className="zbtn zlg" onClick={e => sendCode(e, "zp133mail", "zp133Mcode")}>获取邮箱验证码</button>
+            <input type="tel" className="zinput" placeholder="邮箱验证码"/>
+            <button className="zbtn" onClick={e => sendCode(e, "zp133mail", "zp133Mcode")}>获取邮箱验证码</button>
         </div>
-        <div><input className="zp133phone zinput zlg" placeholder="手机号"/></div>
+        <div><input className="zp133phone zinput" placeholder="手机号"/></div>
         <div className="zp133code">
-            <input type="tel" className="zinput zlg" placeholder="手机验证码"/>
-            <button className="zbtn zlg" onClick={sendCode}>获取手机验证码</button>
+            <input type="tel" className="zinput" placeholder="手机验证码"/>
+            <button className="zbtn" onClick={sendCode}>获取手机验证码</button>
         </div>
         <div>
-            <input type={visible ? "" : "password"} className="zp133passwd zinput zlg" placeholder="新密码，至少8个字符,须包含数字、大小写字母"/>
+            <input type={visible ? "" : "password"} className="zp133passwd zinput" placeholder="新密码，至少8个字符,须包含数字、大小写字母"/>
             <i onClick={() => {visible = !visible; rd()}}>{visible ? eye : eye0}</i>
         </div>
-        <div onClick={forget} className="zbtn zlg zprimary">重置密码</div>
+        <div onClick={forget} className="zbtn zprimary">重置密码</div>
     </div>
 }
 
