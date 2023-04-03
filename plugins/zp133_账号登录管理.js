@@ -17,7 +17,7 @@ function render() {
     </div>
 }
 
-function onInit(ref) {
+function init(ref) {
     rf = ref
     exc = ref.exc
     rd = ref.render
@@ -233,7 +233,7 @@ $plugin({
         ph: "注册时要求同意的用户协议"
     }],
     render,
-    onInit,
+    init,
     css
 })
 
