@@ -1,7 +1,7 @@
 import React from "react"
 import css from "../css/zp133_账号登录管理.css"
 
-const TYPES = { register: "注册", changephone: "更改手机号", changemail: "更改邮箱", resetpassword: "重置密码", forgetpassword: "忘记密码" }
+const TYPES = { register: "注册", changephone: "更改手机号", changemail: "更改邮箱", changepassword: "更改密码", forgetpassword: "忘记密码" }
 let rf, exc, rd, P, T, type, visible, account
 
 function render() {
@@ -9,7 +9,7 @@ function render() {
     if (type && !T.includes(type) && !type.includes("login")) return <div>{"当前配置不允许" + type}</div>
     if (type === "注册") return rRegister()
     if (type === "更改手机号" || type === "更改邮箱") return rChange()
-    if (type === "重置密码") return rReset()
+    if (type === "更改密码") return rReset()
     if (type === "忘记密码") return rForget()
     return <div className={"zp133" + type}>
         {(T.includes("微信扫码登录") && (T.includes("手机号登录") || T.includes("邮箱登录"))) && <div className="zp133toggle"><div onClick={() => {type = (type === "wxlogin" ? "formlogin" : "wxlogin"); rd()}}><svg viewBox="0 0 1024 1024"><path d={LoginType[type]}></path></svg></div></div>}
@@ -130,7 +130,7 @@ function rReset() {
             <input type={visible ? "" : "password"} className="zp133passwd zinput" placeholder="新密码，至少8个字符,须包含数字、大小写字母"/>
             <i onClick={() => {visible = !visible; rd()}}>{visible ? eye : eye0}</i>
         </div>
-        <div onClick={reset} className="zbtn zprimary">重置密码</div>
+        <div onClick={reset} className="zbtn zprimary">更改密码</div>
     </div>
 }
 
@@ -159,7 +159,7 @@ function rForget() {
             <input type={visible ? "" : "password"} className="zp133passwd zinput" placeholder="新密码，至少8个字符,须包含数字、大小写字母"/>
             <i onClick={() => {visible = !visible; rd()}}>{visible ? eye : eye0}</i>
         </div>
-        <div onClick={forget} className="zbtn zprimary">重置密码</div>
+        <div onClick={forget} className="zbtn zprimary">更改密码</div>
     </div>
 }
 
@@ -215,7 +215,7 @@ $plugin({
         prop: "type",
         type: "check",
         label: "启用功能",
-        items: ["微信扫码登录", "手机号登录", "邮箱登录", "注册", "更改手机号", "更改邮箱", "重置密码", "忘记密码"],
+        items: ["微信扫码登录", "手机号登录", "邮箱登录", "注册", "更改手机号", "更改邮箱", "更改密码", "忘记密码"],
     }, {
         prop: "onEnd",
         type: "exp",
