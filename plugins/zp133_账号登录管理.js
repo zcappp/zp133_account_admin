@@ -51,7 +51,7 @@ function rLogin() {
     return <React.Fragment>
         <div><input className="zp133phone zinput" placeholder={account}/></div>
         <div>
-            <input type={visible ? "" : "password"} className="zp133passwd zinput" placeholder="密码"/>
+            <input type={visible ? "" : "password"} className="zp133passwd zinput" placeholder="密码" onKeyDown={e => e.keyCode === 13 && login()}/>
             <i onClick={() => {visible = !visible; rd()}}>{visible ? eye : eye0}</i>
         </div>
         <div onClick={login} className="zbtn zprimary">登录</div>
