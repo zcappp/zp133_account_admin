@@ -2,7 +2,7 @@ import React from "react"
 import css from "../css/zp133_账号登录管理.css"
 
 const TYPES = { register: "注册", changephone: "更改手机号", changemail: "更改邮箱", changepassword: "更改密码", forgetpassword: "忘记密码" }
-let rf, exc, rd, P, T, type, visible, account
+let rf, exc, excA, rd, P, T, type, visible, account
 
 function render() {
     if (!T.length) return <div>请右键配置属性</div>
@@ -20,10 +20,11 @@ function render() {
 function init(ref) {
     rf = ref
     exc = ref.exc
+    excA = ref.excA
     rd = ref.render
     P = ref.props
     T = P.type || []
-    type = exc('$query').zp133
+    type = excA('$query').zp133
     if (Object.values(TYPES).includes(type)) {
         //
     } else if (TYPES[type]) {
@@ -92,8 +93,8 @@ function register() {
     const code = $(".zp133code input").value
     const passwd = $(".zp133passwd").value
     let isMobile
-    if (exc('isMobile(phone)', { phone })) isMobile = true
-    if (exc('isEmail(phone)', { phone })) isMobile = false
+    if (excA('isMobile(phone)', { phone })) isMobile = true
+    if (excA('isEmail(phone)', { phone })) isMobile = false
     if (isMobile === undefined) return invalid("zp133phone", "请输入" + account)
     if (!passwd) return invalid("zp133passwd", "请输入密码")
     if (passwd.length < 8 || !passwd.match(/[a-z]/g) || !passwd.match(/[A-Z]/g) || !passwd.match(/[0-9]/g)) return invalid("zp133passwd", "密码至少要由8个字符，并且须包含数字、大小写字母")
@@ -177,8 +178,8 @@ function forget() {
 function sendCode(e, input = "zp133phone", btn = "zp133code") {
     const to = $("." + input).value
     let isMobile
-    if (exc('isMobile(to)', { to })) isMobile = true
-    if (exc('isEmail(to)', { to })) isMobile = false
+    if (excA('isMobile(to)', { to })) isMobile = true
+    if (excA('isEmail(to)', { to })) isMobile = false
     if (isMobile === undefined) return invalid(input, "请输入" + (input == "zp133phone" ? "手机号" : "邮箱"))
     if (e.target.innerText.includes("已发送")) return
     e.target.classList.add("zdisable")
