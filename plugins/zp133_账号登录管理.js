@@ -117,7 +117,7 @@ function change() {
     const phone = $(".zp133phone").value
     const code = $(".zp133code input").value
     let Q = { phone, code }
-    exc('isMobile(phone)', { phone }) ? exc('$me.changePhone(phone, code)', { phone, code }, onEnd) : exc('$me.changeMail(phone, code)', { phone, code }, onEnd)
+    excA('isMobile(phone)', { phone }) ? exc('$me.changePhone(phone, code)', { phone, code }, onEnd) : exc('$me.changeMail(phone, code)', { phone, code }, onEnd)
 }
 
 function rReset() {
@@ -177,14 +177,11 @@ function forget() {
 
 function sendCode(e, input = "zp133phone", btn = "zp133code") {
     const to = $("." + input).value
-    let isMobile
-    if (excA('isMobile(to)', { to })) isMobile = true
-    if (excA('isEmail(to)', { to })) isMobile = false
-    if (isMobile === undefined) return invalid(input, "请输入" + (input == "zp133phone" ? "手机号" : "邮箱"))
+    if (!excA('isMobile(to)', { to }) && !excA('isEmail(to)', { to })) return invalid(input, "请输入" + (input == "zp133phone" ? "手机号" : "邮箱"))
     if (e.target.innerText.includes("已发送")) return
     e.target.classList.add("zdisable")
     let countdown = 100
-    exc(isMobile ? '$me.sendCode(to)' : '$mail.sendCode(to, $appName + "验证码")', { to }, r => {
+    exc('$api.sendCode(to)', { to }, r => {
         if (!r) exc('warn("发送失败")')
         const timer = setInterval(() => {
             let el = $("." + btn + " .zbtn")
@@ -207,7 +204,7 @@ function invalid(cx, msg) { // = exc('addRemoveClass(".zp133phone", "zinvalid")'
 }
 
 function onEnd($x) {
-    if (P.onEnd) exc(P.onEnd, { ...rf.ctx, $x, type }, () => exc("render()"))
+    if (P.onEnd) exc(P.onEnd, { ...rf.ctx, $x, zp133: type }, () => exc('$x ? (type.startsWith("更改") ? success("已更改") : (type == "忘记密码" ? success("已重置") : "")) : ""; render()', { $x, type }))
 }
 
 $plugin({
