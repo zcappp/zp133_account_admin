@@ -49,6 +49,7 @@ function rLogin() {
         {rd({ t: "WxQRLogin", s: "padding: 0px 25px;", p: { onEnd: P.onEnd } })}
         <h4>打开微信扫一扫即可登录</h4>
     </div>
+    const me = excA('$c.me')
     return <React.Fragment>
         <div><input className="zp133phone zinput" placeholder={account}/></div>
         <div>
@@ -57,8 +58,8 @@ function rLogin() {
         </div>
         <div onClick={login} className="zbtn zprimary">登录</div>
         <div className="zp133foot">
-            {T.includes("注册") && !T.includes("微信扫码登录") && <a onClick={() => {type = "注册"; rd()}}>注册</a>}
-            {T.includes("忘记密码") && <a onClick={() => {type = "忘记密码"; rd()}}>忘记密码</a>}
+            {!me ? T.includes("注册") && !T.includes("微信扫码登录") && <a onClick={() => {type = "注册"; rd()}}>注册</a> : <a/>}
+            {!me ? T.includes("忘记密码") && <a onClick={() => {type = "忘记密码"; rd()}}>忘记密码</a> : T.includes("更改密码") && <a onClick={() => {type = "更改密码"; rd()}}>更改密码</a>}
         </div>
     </React.Fragment>
 }
