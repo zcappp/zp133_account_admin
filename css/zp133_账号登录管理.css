@@ -13,10 +13,6 @@ module.exports=`
     box-sizing: border-box;
 }
 
-.zp133 * {
-    box-sizing: inherit;
-}
-
 .zp133>div>div {
     position: relative;
 }
@@ -64,6 +60,10 @@ module.exports=`
 .zp133 .zbtn {
     width: 100%;
     margin-bottom: 18px;
+}
+
+.zp133 .zbtn {
+    padding: 4px 0;
 }
 
 .zp133 input:-webkit-autofill {
