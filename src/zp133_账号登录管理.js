@@ -1,5 +1,5 @@
 import React from "react"
-import css from "../css/zp133_账号登录管理.css"
+import css from "./zp133_账号登录管理.css"
 
 const TYPES = { register: "注册", changephone: "更改手机号", changemail: "更改邮箱", changepassword: "更改密码", forgetpassword: "忘记密码" }
 let rf, exc, excA, rd, P, T, type, visible, account
