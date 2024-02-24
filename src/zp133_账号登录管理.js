@@ -46,7 +46,7 @@ function init(ref) {
 function rLogin() {
     if (type === "wxlogin") return <div className="zp133wxqr">
         <h2>微信登录</h2>
-        {rd({ t: "WxQRLogin", s: "padding: 0px 25px;", p: { onEnd: P.onEnd } })}
+        {excA('html({ t: "WxQRLogin", s: "padding: 0px 25px;", p: { onEnd: P.onEnd } })', { P })}
         <h4>打开微信扫一扫即可登录</h4>
     </div>
     const me = excA('$c.me')
