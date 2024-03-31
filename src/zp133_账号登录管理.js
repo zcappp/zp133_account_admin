@@ -56,7 +56,7 @@ function rLogin() {
             <input type={visible ? "" : "password"} className="zp133passwd zinput" placeholder="密码" onKeyDown={e => e.keyCode === 13 && login()}/>
             <i onClick={() => {visible = !visible; rd()}}>{visible ? eye : eye0}</i>
         </div>
-        <div onClick={login} className="zbtn zprimary">登录</div>
+        <div onClick={login} className="zbtn main">登录</div>
         <div className="zp133foot">
             {!me ? T.includes("注册") && !T.includes("微信扫码登录") && <a onClick={() => {type = "注册"; rd()}}>注册</a> : <a/>}
             {!me ? T.includes("忘记密码") && <a onClick={() => {type = "忘记密码"; rd()}}>忘记密码</a> : T.includes("更改密码") && <a onClick={() => {type = "更改密码"; rd()}}>更改密码</a>}
@@ -84,7 +84,7 @@ function rRegister() {
             <i onClick={() => {visible = !visible; rd()}}>{visible ? eye : eye0}</i>
         </div>
         {!!P.agreeURL && <div><input type="checkbox" id="zp133agree"/><label htmlFor="zp133agree">已阅读并同意<a href={P.agreeURL} target="_blank">《{P.agreeName || "用户服务协议"}》</a></label></div>}
-        <div onClick={register} className="zbtn zprimary">注册</div>
+        <div onClick={register} className="zbtn main">注册</div>
         <div className="zcenter">已有账号<a onClick={() => {type = "formlogin"; rd()}}> 去登录</a></div>
     </div>
 }
@@ -110,7 +110,7 @@ function rChange() {
             <input type="tel" className="zinput" placeholder="验证码"/>
             <button className="zbtn" onClick={sendCode}>获取验证码</button>
         </div>
-        <div onClick={change} className="zbtn zprimary">{type}</div>
+        <div onClick={change} className="zbtn main">{type}</div>
     </div>
 }
 
@@ -132,7 +132,7 @@ function rReset() {
             <input type={visible ? "" : "password"} className="zp133passwd zinput" placeholder="新密码，至少8个字符,须包含数字、大小写字母"/>
             <i onClick={() => {visible = !visible; rd()}}>{visible ? eye : eye0}</i>
         </div>
-        <div onClick={reset} className="zbtn zprimary">更改密码</div>
+        <div onClick={reset} className="zbtn main">更改密码</div>
     </div>
 }
 
@@ -161,7 +161,7 @@ function rForget() {
             <input type={visible ? "" : "password"} className="zp133passwd zinput" placeholder="新密码，至少8个字符,须包含数字、大小写字母"/>
             <i onClick={() => {visible = !visible; rd()}}>{visible ? eye : eye0}</i>
         </div>
-        <div onClick={forget} className="zbtn zprimary">更改密码</div>
+        <div onClick={forget} className="zbtn main">更改密码</div>
     </div>
 }
 
@@ -180,7 +180,7 @@ function sendCode(e, input = "zp133phone", btn = "zp133code") {
     const to = $("." + input).value
     if (!excA('isMobile(to)', { to }) && !excA('isEmail(to)', { to })) return invalid(input, "请输入" + (input == "zp133phone" ? "手机号" : "邮箱"))
     if (e.target.innerText.includes("已发送")) return
-    e.target.classList.add("zdisable")
+    e.target.classList.add("disabled")
     let countdown = 100
     exc('$api.sendCode(to)', { to }, r => {
         if (!r) exc('warn("发送失败")')
@@ -188,7 +188,7 @@ function sendCode(e, input = "zp133phone", btn = "zp133code") {
             let el = $("." + btn + " .zbtn")
             if (!el || !countdown) {
                 if (!countdown) el.innerText = "重新获取验证码"
-                if (el) el.classList.remove("zdisable")
+                if (el) el.classList.remove("disabled")
                 return clearInterval(timer)
             }
             countdown -= 1
