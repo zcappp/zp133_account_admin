@@ -62,10 +62,6 @@ module.exports=`
     margin-bottom: 18px;
 }
 
-.zp133 .zbtn {
-    padding: 4px 0;
-}
-
 .zp133 input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0 1000px #fff inset;
 }
